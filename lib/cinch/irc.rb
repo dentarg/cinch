@@ -45,6 +45,10 @@ module Cinch
     def connect
       tcp_socket = nil
 
+      require "pp"
+
+      pp @bot.config
+
       begin
         Timeout::timeout(@bot.config.timeouts.connect) do
           tcp_socket = TCPSocket.new(@bot.config.server, @bot.config.port, @bot.config.local_host)
